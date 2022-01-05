@@ -1,0 +1,16 @@
+var bg=new SimpleImage("dinos.png");
+var fg=new SimpleImage("drewRobert.png");
+var output=new SimpleImage(fg.getWidth(),fg.getHeight());
+for (var pixel of fg.values()){
+    if (pixel.getGreen()==255){
+        output.setRed(pixel.getX(),pixel.getY(),bg.getRed(pixel.getX(),pixel.getY()));
+        output.setGreen(pixel.getX(),pixel.getY(),bg.getGreen(pixel.getX(),pixel.getY()));
+        output.setBlue(pixel.getX(),pixel.getY(),bg.getBlue(pixel.getX(),pixel.getY()));
+    }
+    else{
+        output.setRed(pixel.getX(),pixel.getY(),fg.getRed(pixel.getX(),pixel.getY()));
+        output.setGreen(pixel.getX(),pixel.getY(),fg.getGreen(pixel.getX(),pixel.getY()));
+        output.setBlue(pixel.getX(),pixel.getY(),fg.getBlue(pixel.getX(),pixel.getY()));
+    }
+}
+print(output);
